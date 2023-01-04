@@ -13,34 +13,35 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'AboutInfo',
-  data() {
-    return {
-      data: [
-        {
-          param: 'ФИО',
-          descr:'Мария Матвеева'
-        },
-        {
-          param: 'Дата рождения',
-          descr:'01.02.1993 г.'
-        },
-        {
-          param: 'Образование',
-          descr:'Химический факультет МГУ имени М.В.Ломоносова'
-        },
-        {
-          param: 'Дополнительное образование',
-          descr:'Веб-разработка. Онлайн-университет Skillbox'
-        },
-        {
-          param: 'Призвание',
-          descr:'Frontend-разработчик в стриминговой платформе viju.ru'
-        },
-      ]
-    }
-  }
-}
+<script lang="ts">
+  import { defineComponent } from 'vue'
+
+  export default defineComponent({
+    name: 'AboutInfo',
+  })
+</script>
+
+<script setup lang="ts">
+  const data = [
+    {
+      param: 'ФИО',
+      descr:'Мария Матвеева'
+    },
+    {
+      param: 'Дата рождения',
+      descr:'01.02.1993 г.'
+    },
+    {
+      param: 'Образование',
+      descr:'Химический факультет МГУ имени М.В.Ломоносова'
+    },
+    {
+      param: 'Дополнительное образование',
+      descr:'Веб-разработка. Онлайн-университет Skillbox'
+    },
+    {
+      param: 'Призвание',
+      descr:'Frontend-разработчик в стриминговой платформе viju.ru'
+    },
+  ];
 </script>

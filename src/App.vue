@@ -7,37 +7,24 @@
   <router-view/>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import { defineComponent, onMounted } from 'vue'
+
+  export default defineComponent({
     name: 'App',
-    mounted() {
-      this.getStartPoint()
-      this.startTimer()
-    },
-    data() {
-      return {
-        seconds: localStorage.getItem('timer')
-      }
-    },
-    methods: {
-      getStartPoint() {
-        if (window.localStorage === undefined) {
-          alert('Ошибка! У Вас не работает LocalStorage!');
-        } else if (localStorage.getItem('timer') > 0) {
-          this.seconds = localStorage.getItem('timer')
-        } else {
-          localStorage.setItem('timer', 0)
-        }
-      },
-      startTimer() {
-        setInterval(() => {
-          this.seconds = localStorage.getItem('timer')
-          this.seconds++
-          localStorage.setItem('timer', this.seconds)
-        }, 1000);
-      }
-    }
-  }
+  })
+</script>
+
+<script setup lang="ts">
+import { useMyStore } from './stores/MyStore'
+const store = useMyStore();
+
+onMounted(() => {
+  setInterval(() => {
+    store.timer++;
+    localStorage.setItem('timer', store.timer);
+  }, 1000)
+})
 </script>
 
 <style>

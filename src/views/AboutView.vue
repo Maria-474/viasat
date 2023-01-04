@@ -5,13 +5,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
 import AboutInfo from '@/components/AboutInfo.vue'
 
-export default {
-  name: 'HomeView',
+@Options({
   components: {
-    AboutInfo
-  }
-}
+    AboutInfo,
+  },
+})
+
+export default class AboutView extends Vue {}
 </script>

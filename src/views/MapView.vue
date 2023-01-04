@@ -5,13 +5,15 @@
   </div>
 </template>
   
-<script>
-  import MyMap from '@/components/MyMap.vue';
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import MyMap from '@/components/MyMap.vue';
 
-  export default {
-    name: 'MapPage', 
-    components: {
-      MyMap
-    }   
+@Options({
+  components: {
+    MyMap,
   }
+})
+
+export default class MapView extends Vue {}
 </script>
